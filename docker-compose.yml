@@ -1,0 +1,38 @@
+services:
+    sounder:
+        container_name: sounder-frontend
+        restart: always
+        build:
+            context: ./
+        ports:
+            - '3000:3000'
+        labels:
+            - 'traefik.enable=true' # Enable Traefik routing for sounder service
+            - 'traefik.http.routers.sounder.rule=Host(`sounder.localhost`)' # Define routing rule (replace with your domain)
+            - 'traefik.http.services.sounder.loadbalancer.server.port=3000' # Set port to forward traffic to (3000 in this case)
+        networks:
+            - network-sounder
+        working_dir: /app
+        volumes:
+            - .:/app
+        tty: true
+
+    traefik:
+        image: traefik:v3.0
+        command:
+            - '--api.insecure=true'
+            - '--providers.docker'
+        ports:
+            - '80:80'
+            - '8080:8080'
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - network-sounder
+        labels:
+            - 'traefik.http.routers.dashboard.rule=Host(`traefik.localhost`)'
+            - 'traefik.http.services.dashboard.loadbalancer.server.port=8080'
+
+networks:
+    network-sounder:
+        name: network-sounder
