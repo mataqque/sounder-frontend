@@ -1,11 +1,4 @@
 FROM node:18-alpine
 
-WORKDIR /app
-
-RUN yarn install
-
-COPY . .
-
-CMD ["yarn", "dev"]
-
-EXPOSE 3000
+RUN apk add --no-cache git 
+RUN git config --global --add safe.directory /app
