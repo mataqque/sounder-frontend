@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { ContentSubCategories } from './contenCategories/contentCategories';
 import { ContentCards } from './contentCards/contentCards';
+import { AudioPlayerComponent } from '../components/player/player';
 
 interface Iprops {
 	params: { type: string };
@@ -23,6 +24,7 @@ export default async function TypeSound({ params }: Iprops) {
 				<ContentSubCategories />
 			</div>
 			<ContentCards data={data} />
+			<AudioPlayerComponent />
 		</section>
 	);
 }
