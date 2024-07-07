@@ -6,6 +6,7 @@ export interface IFile {
     id: string;
     name: string;
     updated: string;
+    selected?: boolean;
 }
 export interface IMusic {
     page: number;

@@ -4,9 +4,9 @@ import Dropzone from 'react-dropzone';
 import { useDispatch } from 'react-redux';
 import { useGetFilesMutation } from '../../store/api/filesApi';
 import { updateFiles } from '../../store/slice/file_managerSlice';
-import { BASE_API_LOCAL } from '../../store/config';
 import { ModalContext } from '@/components/global/modal/modal';
 import { bytesToSize, delayfunc, generateId } from '@/helpers/helpers';
+import { URL_BASE_API_BACKEND } from '@/store/config';
 
 interface IFile {
 	uuid: number | string;
@@ -37,7 +37,7 @@ export default function Upload() {
 			const formData = new FormData();
 			formData.append('file', file.file);
 			const xhr = new XMLHttpRequest();
-			xhr.open('POST', `${BASE_API_LOCAL}/upload`);
+			xhr.open('POST', `${URL_BASE_API_BACKEND}/upload`);
 			xhr.upload.addEventListener('progress', event => {
 				if (event.lengthComputable) {
 					const percentComplete = (event.loaded / event.total) * 100;

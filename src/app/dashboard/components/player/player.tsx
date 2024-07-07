@@ -3,22 +3,22 @@ import { useEffect, useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { obsPlayer } from './obsplayer';
-import { IFile } from '../cards/file.interface';
 import './player-audio.scss';
+import { useSelector } from 'react-redux';
+import { IFile } from '@/store/slices/sounds.interface';
 
 export const AudioPlayerComponent = () => {
-	const [item, setItem] = useState<IFile>({} as IFile);
-	const path = item.file ? `/api/files/${item.collectionId}/${item.id}/${item.file}` : '';
+	const [file, setFile] = useState<IFile>({} as IFile);
 	useEffect(() => {
-		obsPlayer.subscribe(data => {
-			setItem(data);
+		obsPlayer.subscribe(f => {
+			setFile(f);
 		});
-	}, [item]);
+	}, []);
 	return (
 		<AudioPlayer
 			className='player-audio'
 			autoPlay
-			src={path}
+			src={file.id ? `/api/files/${file.collectionId}/${file.id}/${file.file}` : ''}
 			onPlay={e => console.log('onPlay')}
 
 			// other props here

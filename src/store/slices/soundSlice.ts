@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IMusic, ISound, ISoundsState } from './sounds.interface';
+import { IFile, IMusic, ISound, ISoundsState } from './sounds.interface';
 import { IRootState } from '../store';
 
 const initialState: ISoundsState = {
@@ -28,11 +28,24 @@ const soundSlice = createSlice({
         updateMusics: (state, action: PayloadAction<IMusic>) => {
             state.music = action.payload;
         },
+        selectedMusic: (state, action: PayloadAction<IFile | null>) => {
+            const files = state.music.items.map((file: IFile) => {
+                file.selected = false;
+                if (file.id === action.payload?.id) {
+                    file.selected = !file.selected;
+                    return file;
+                }
+                return file;
+            });
+            state.music.items = files;
+        },
     },
 });
 
-export const { updateSounds, updateMusics } = soundSlice.actions;
+export const { updateSounds, updateMusics, selectedMusic } = soundSlice.actions;
 
 export default soundSlice.reducer;
 
 export const getFilesMusics = (state: IRootState) => state.soundSlice.music.items;
+
+// export const selectedMusicItem = (state: IRootState) => state.soundSlice.music;

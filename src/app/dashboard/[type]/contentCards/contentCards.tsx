@@ -2,10 +2,9 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { CardMusic } from '../../components/cards/cards';
-import { IFile } from '../../components/cards/file.interface';
 import { useEffect } from 'react';
 import { getFilesMusics, updateMusics } from '@/store/slices/soundSlice';
-import { IMusic } from '@/store/slices/sounds.interface';
+import { IFile, IMusic } from '@/store/slices/sounds.interface';
 
 interface Iprops {
 	data: {
@@ -38,7 +37,7 @@ export function ContentCards({ data }: { data: IMusic }) {
 	return (
 		<div className='w-full h-full overflow-hidden'>
 			{files.length > 0 && (
-				<div className='ctx-card grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] auto-rows-max gap-4 overflow-x-hidden overflow-y-auto h-full scroll'>
+				<div className='ctx-card grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] auto-rows-max gap-x-2 gap-y-4 overflow-x-hidden overflow-y-auto h-full scroll'>
 					{files.map((i, index) => (
 						<CardMusic key={index + ''} item={i}></CardMusic>
 					))}
