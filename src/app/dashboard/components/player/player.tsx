@@ -8,16 +8,17 @@ import './player-audio.scss';
 
 export const AudioPlayerComponent = () => {
 	const [item, setItem] = useState<IFile>({} as IFile);
+	const path = item.file ? `/api/files/${item.collectionId}/${item.id}/${item.file}` : '';
 	useEffect(() => {
 		obsPlayer.subscribe(data => {
 			setItem(data);
 		});
-	}, []);
+	}, [item]);
 	return (
 		<AudioPlayer
 			className='player-audio'
 			autoPlay
-			src={'/api/files/' + item.collectionId + '/' + item.id + '/' + item.file}
+			src={path}
 			onPlay={e => console.log('onPlay')}
 
 			// other props here

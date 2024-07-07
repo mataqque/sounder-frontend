@@ -1,7 +1,11 @@
 'use client';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { CardMusic } from '../../components/cards/cards';
 import { IFile } from '../../components/cards/file.interface';
+import { useEffect } from 'react';
+import { getFilesMusics, updateMusics } from '@/store/slices/soundSlice';
+import { IMusic } from '@/store/slices/sounds.interface';
 
 interface Iprops {
 	data: {
@@ -13,8 +17,10 @@ interface Iprops {
 	};
 }
 
-export function ContentCards({ data }: Iprops) {
-	const { items = [] } = data;
+export function ContentCards({ data }: { data: IMusic }) {
+	const dispatch = useDispatch();
+	const files = useSelector(getFilesMusics);
+	console.log(files);
 	const array = new Array(100).fill(0).map((_, i) => {
 		return {
 			collectionId: 'njyb3kct9xo1h04',
@@ -26,16 +32,19 @@ export function ContentCards({ data }: Iprops) {
 			updated: '2024-07-06 05:33:37.799Z',
 		};
 	});
+	useEffect(() => {
+		dispatch(updateMusics(data));
+	}, []);
 	return (
 		<div className='w-full h-full overflow-hidden'>
-			{items.length > 0 && (
+			{files.length > 0 && (
 				<div className='ctx-card grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] auto-rows-max gap-4 overflow-x-hidden overflow-y-auto h-full scroll'>
-					{items.map((i, index) => (
+					{files.map((i, index) => (
 						<CardMusic key={index + ''} item={i}></CardMusic>
 					))}
 				</div>
 			)}
-			{items.length <= 0 && (
+			{files.length <= 0 && (
 				<div className=' m-auto w-full h-full flex items-center justify-center pb-[10%]'>
 					<span className='text-white text-1/4 text-center'>No hay canciones</span>
 				</div>

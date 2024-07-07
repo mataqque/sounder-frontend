@@ -79,3 +79,22 @@ export const listFormatter = new Intl.ListFormat('es-PE', {
 	style: 'long',
 	type: 'conjunction',
 });
+
+export const bytesToSize = (bytes: number): string => {
+	const sizes = ['Bytes', 'Kb', 'Mb', 'gb', 'Tb'];
+	if (bytes === 0) {
+		return '0 Byte';
+	}
+	const i = Math.floor(Math.log(bytes) / Math.log(1024));
+	return `${Math.round(bytes / Math.pow(1024, i))} ${sizes[i]}`;
+};
+
+export const delayfunc = (func: Function, time: number) => {
+	return new Promise((resolve: any) => {
+		let delay = setTimeout(() => {
+			func();
+			clearTimeout(delay);
+			resolve();
+		}, time);
+	});
+};

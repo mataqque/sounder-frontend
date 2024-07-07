@@ -6,7 +6,7 @@ import { soundApi } from './apis/sellProducts';
 import soundSlice from './slices/soundSlice';
 import { ISoundsState } from './slices/sounds.interface';
 
-interface IRootState {
+export interface IRootState {
 	soundSlice: ISoundsState;
 }
 
@@ -15,7 +15,7 @@ const middleware = [soundApi.middleware];
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['cartbuySlice', 'paymentSlice'],
+	whitelist: ['soundSlice'],
 };
 
 const rootReducer = combineReducers({

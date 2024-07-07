@@ -1,1 +1,1 @@
-export const URL_BASE_API_BACKEND = 'http://localhost:3000/api'
+export const URL_BASE_API_BACKEND = 'http://sounder-backend:8080/api'

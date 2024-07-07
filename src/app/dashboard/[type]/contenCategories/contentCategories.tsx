@@ -21,12 +21,12 @@ export function ContentCategories() {
 			description: 'Romanticas',
 		},
 		{
-			uuid: '1',
+			uuid: '2',
 			name: 'Romanticas',
 			description: 'Romanticas',
 		},
 		{
-			uuid: '1',
+			uuid: '3',
 			name: 'Romanticas',
 			description: 'Romanticas',
 		},

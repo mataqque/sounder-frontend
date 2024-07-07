@@ -8,6 +8,15 @@ export const soundApi = createApi({
 		baseUrl: '/api',
 	}),
 	endpoints: builder => ({
+		getMusic: builder.mutation({
+			query: ({ data }) => {
+				return {
+					url: `/collections/musica/records`,
+					method: 'POST',
+					body: data,
+				};
+			},
+		}),
 		getSounds: builder.mutation({
 			query: ({ data }) => {
 				return {
