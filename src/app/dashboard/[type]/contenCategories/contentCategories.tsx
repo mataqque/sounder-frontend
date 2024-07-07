@@ -8,7 +8,7 @@ export interface ICategory {
 	name: string;
 	description: string;
 }
-export function ContentSubCategories() {
+export function ContentCategories() {
 	// const [getSubCategories, {}] = useSubcategoriesMutation();
 	// const [getNotes, {}] = useNotesMutation();
 	// const dispatch = useDispatch();

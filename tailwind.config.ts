@@ -37,7 +37,7 @@ module.exports = {
         border: '#2D3748',
         hover: '#2D3748',
         info: '#3695fbfa',
-        success: '#32d09c',
+        success: '#289571',
         lemon: '#39c6a4',
         warning: '#ff8c00',
         danger: '#ff6868',

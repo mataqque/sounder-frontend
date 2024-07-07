@@ -15,11 +15,21 @@ interface Iprops {
 
 export function ContentCards({ data }: Iprops) {
 	const { items = [] } = data;
-
+	const array = new Array(100).fill(0).map((_, i) => {
+		return {
+			collectionId: 'njyb3kct9xo1h04',
+			collectionName: 'musica',
+			created: '2024-07-06 05:33:37.799Z',
+			file: 'oh_me_vengo_faraon_YSBe7BKNoq.mp3',
+			id: 'pbza7otncxyyprt',
+			name: 'oh me vengo',
+			updated: '2024-07-06 05:33:37.799Z',
+		};
+	});
 	return (
-		<div className='w-full h-full'>
+		<div className='w-full h-full overflow-hidden'>
 			{items.length > 0 && (
-				<div className='ctx-card grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-4'>
+				<div className='ctx-card grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] auto-rows-max gap-4 overflow-x-hidden overflow-y-auto h-full scroll'>
 					{items.map((i, index) => (
 						<CardMusic key={index + ''} item={i}></CardMusic>
 					))}

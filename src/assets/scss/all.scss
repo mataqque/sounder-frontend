@@ -205,7 +205,7 @@ input.--invalid {
 .scroll {
 	overflow-y: scroll;
 	&::-webkit-scrollbar-thumb {
-		background-color: var(--secondary);
+		background-color: rgb(226, 234, 240);
 		opacity: 0.5;
 		border-radius: 4px;
 		position: fixed;

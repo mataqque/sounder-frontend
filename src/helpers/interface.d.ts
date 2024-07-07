@@ -4,3 +4,8 @@ export interface IToastNotifyPromise {
 }
 
 type EventType = 'change';
+
+export interface TypeGeneric {
+	number: string;
+	string: string;
+}
