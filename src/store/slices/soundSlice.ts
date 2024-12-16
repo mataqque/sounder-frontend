@@ -22,30 +22,14 @@ const soundSlice = createSlice({
     name: 'soundSlice',
     initialState,
     reducers: {
-        updateSounds: (state, action: PayloadAction<ISound>) => {
-            state.sounds = action.payload;
-        },
-        updateMusics: (state, action: PayloadAction<IMusic>) => {
-            state.music = action.payload;
-        },
-        selectedMusic: (state, action: PayloadAction<IFile | null>) => {
-            const files = state.music.items.map((file: IFile) => {
-                file.selected = false;
-                if (file.id === action.payload?.id) {
-                    file.selected = !file.selected;
-                    return file;
-                }
-                return file;
-            });
-            state.music.items = files;
-        },
+
     },
 });
 
-export const { updateSounds, updateMusics, selectedMusic } = soundSlice.actions;
+export const { } = soundSlice.actions;
 
 export default soundSlice.reducer;
 
-export const getFilesMusics = (state: IRootState) => state.soundSlice.music.items;
+export const getFilesMusics = (state: any) => state.soundSlice.music;
 
 // export const selectedMusicItem = (state: IRootState) => state.soundSlice.music;

@@ -1,13 +1,13 @@
 services:
-    sounder:
-        container_name: sounder-frontend
+    formula-frontend:
+        container_name: dashboard-formula-frontend
         restart: always
         build:
             context: ./
         ports:
-            - '3000:3000'
+            - '3014:3000'
         networks:
-            - network-sounder
+            - network-formula
         working_dir: /app
         command: sh -c "yarn install && yarn dev "
         volumes:
@@ -15,5 +15,6 @@ services:
         tty: true
 
 networks:
-    network-sounder:
-        name: network-sounder
+    network-formula:
+        name: network-formula
+        external: true

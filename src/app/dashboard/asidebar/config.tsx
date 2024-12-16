@@ -16,16 +16,10 @@ export const itemSidebar: IMenuSidebar[] = [
 		title: 'Media',
 		list_sidebars: [
 			{
-				title: 'Música',
+				title: 'Multimedia',
 				icon: 'icon-music',
 				segment: 'Sonidos',
-				to: '/dashboard/musica',
-			},
-			{
-				title: 'Sonidos',
-				icon: 'icon-sound',
-				segment: 'Sonidos',
-				to: '/dashboard/sonidos',
+				to: '/dashboard/multimedia',
 			},
 		],
 	},
@@ -34,7 +28,43 @@ export const itemSidebar: IMenuSidebar[] = [
 		title: 'Menú',
 		list_sidebars: [
 			{
-				title: 'Equalizador',
+				title: 'Reportes',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: '',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: 'Preferencias',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: 'Mailing',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: 'Bot',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: 'Acceso',
+				icon: 'icon-music',
+				segment: 'gestion-de-tareas',
+				to: '/dashboard/equalizador',
+			},
+			{
+				title: 'Proyectos',
 				icon: 'icon-music',
 				segment: 'gestion-de-tareas',
 				to: '/dashboard/equalizador',

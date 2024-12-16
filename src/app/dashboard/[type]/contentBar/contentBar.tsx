@@ -1,6 +1,7 @@
 'use client';
 
 import { InputSearch } from '@/components/common/inputsearchdash/inputsearchdash';
+import { obsModal } from '@/components/global/modal/obsModal';
 
 export const ContentBar = () => {
 	const onchange = (event: any) => {
@@ -12,7 +13,18 @@ export const ContentBar = () => {
 				<div className='w-[15rem] h-full'>
 					<InputSearch placeholder='Buscar..' onSearch={onchange} onSubmit={onchange} initValue='' />
 				</div>
-				<button className='cursor-pointer h-full w-max bg-success p-4 text-white flex items-center justify-center rounded-md select-none'>Agregar Música</button>
+				<button
+					onClick={() => {
+						obsModal.next({
+							upload: {
+								value: true,
+							},
+						});
+					}}
+					className='cursor-pointer h-full w-max bg-success p-4 text-white flex items-center justify-center rounded-md select-none'
+				>
+					Agregar Música
+				</button>
 				<button className='cursor-pointer h-full w-max bg-info p-4 text-white flex items-center justify-center rounded-md select-none'>Agregar Categoría</button>
 				<button className='cursor-pointer h-full w-max bg-danger p-4 text-white flex items-center justify-center rounded-md select-none'>Eliminar Canción</button>
 			</div>

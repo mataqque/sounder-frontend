@@ -6,13 +6,12 @@ import { Providers } from '@/store/provider';
 import '@/assets/scss/index.scss';
 import '@/assets/scss/index.css';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
 	title: 'Sounder',
 	description: '',
 };
 
+const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -21,7 +20,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head>
-				<meta name='theme-color' content='#f86e91' />
+				<meta name='theme-color' content='#000030' />
 				<link rel='icon' href='/brand-lazo.png' sizes='any' type='image/x-icon' />
 				<meta name='viewport' content='width=device-width,height=device-height,initial-scale=1,maximum-scale=1' />
 			</head>

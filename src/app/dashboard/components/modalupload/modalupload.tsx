@@ -2,8 +2,6 @@ import './modalUpload.scss';
 import { useContext, useEffect, useState } from 'react';
 import Dropzone from 'react-dropzone';
 import { useDispatch } from 'react-redux';
-import { useGetFilesMutation } from '../../store/api/filesApi';
-import { updateFiles } from '../../store/slice/file_managerSlice';
 import { ModalContext } from '@/components/global/modal/modal';
 import { bytesToSize, delayfunc, generateId } from '@/helpers/helpers';
 import { URL_BASE_API_BACKEND } from '@/store/config';
@@ -16,7 +14,7 @@ interface IFile {
 export default function Upload() {
 	const { onClose } = useContext(ModalContext);
 	const dispatch = useDispatch();
-	const [getFiles, { isSuccess }] = useGetFilesMutation<any>();
+	// const [getFiles, { isSuccess }] = useGetFilesMutation<any>();
 	const [preFiles, setPreviousFiles] = useState<IFile[]>([]);
 
 	const onDrop = (Files: any) => {
@@ -64,8 +62,8 @@ export default function Upload() {
 			xhr.addEventListener('load', async event => {
 				if (xhr.status === 200 || xhr.status === 201) {
 					await delayfunc(async () => {
-						const { data }: any = await getFiles('');
-						dispatch(updateFiles(data.data));
+						// const { data }: any = await getFiles('');
+						// dispatch(updateFiles(data.data));
 					}, 1000);
 				} else {
 					console.error('Error al subir el archivo.');
@@ -89,7 +87,7 @@ export default function Upload() {
 					}}
 				/>
 				<div className='features'>
-					<h1 className='title text-center bold text-center flex mb-2 mt-2 text-center w-full justify-center'>Sube tus archivos</h1>
+					<h1 className='title text-center bold flex mb-2 mt-2 w-full justify-center'>Sube tus archivos</h1>
 					<span className='sub-title'>JPG,PNG,SVG,PDF,DOCX,GIF. peso esperado menor a 3mb</span>
 					<div className='content-dropzone'>
 						<Dropzone onDrop={onDrop}>
