@@ -2,7 +2,6 @@
 import { memo } from 'react';
 import { obsPlayer } from '../player/obsplayer';
 import { useDispatch } from 'react-redux';
-import { selectedMusic } from '@/store/slices/soundSlice';
 import { IFile } from '@/store/slices/sounds.interface';
 
 export const CardMusic = memo(function MemoCard({ item }: { item: IFile }) {
@@ -13,7 +12,6 @@ export const CardMusic = memo(function MemoCard({ item }: { item: IFile }) {
 				item.selected ? 'active' : ''
 			}`}
 			onClick={() => {
-				dispatch(selectedMusic(item));
 				obsPlayer.next(item);
 			}}
 		>
